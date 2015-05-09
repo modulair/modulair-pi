@@ -41,14 +41,16 @@ socket.on('home' + home_id, function(data){
 var toggleState = 'a';
 
 socket.on('client', function (data) {
-  if (data=='toggle') {
-    console.log('asdf');
-    // usb.write(toggleState);
-    // if (toggleState=='a') {
-    //   toggleState='b';
-    // } else {
-    //   toggleState='a';
-    // }
+	console.log(data);
+  if (data.title=='changeState') {
+    //console.log('asdf');
+    usb.write(toggleState);
+	console.log(toggleState);
+    if (toggleState=='b') {
+      toggleState='a';
+    } else {
+      toggleState='b';
+    }
   } else {
     console.log('other');
   }

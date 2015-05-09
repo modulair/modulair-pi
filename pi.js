@@ -3,7 +3,7 @@ var serialport = require('serialport');
 var rl = require("readline");
 var prompts = rl.createInterface(process.stdin, process.stdout);
 var usb = new serialport.SerialPort(sport, {
-    baudrate: 9600,
+    baudrate: 9600
 });
 var async = require('async');
 //    parser: serialport.parsers.readline('\n')
@@ -12,10 +12,10 @@ var async = require('async');
 usb.on('open', function () {
 	console.log('xbee udah on');
 	prompt();
-  usb.on('data', function(data) {
-    //process.exit();
-    console.log('data received: ' + data);
-  });
+ // usb.on('data', function(data) {
+   // process.exit();
+  //  console.log('data received: ' + data);
+ // });
   //usb.write("HELLO I AM OPEN\n", function(err, results) {
   	//	console.log('err ' + err);
     //	console.log('results ' + results);
@@ -28,6 +28,13 @@ usb.on('open', function () {
 	//		usb.write(a);
 	//	}
 	//});
+});
+
+usb.on('data', function (data) {
+//	console.log('data received: ' + Buffer(data).toString('ascii'));
+//	console.log(data);
+	console.log(data.toString('ascii'));
+//	process.exit();
 });
 
 var reading, loop=true;

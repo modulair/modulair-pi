@@ -42,12 +42,13 @@ var toggleState = 'a';
 
 socket.on('client', function (data) {
   if (data=='toggle') {
-    usb.write(toggleState);
-    if (toggleState=='a') {
-      toggleState='b';
-    } else {
-      toggleState='a';
-    }
+    console.log('asdf');
+    // usb.write(toggleState);
+    // if (toggleState=='a') {
+    //   toggleState='b';
+    // } else {
+    //   toggleState='a';
+    // }
   } else {
     console.log('other');
   }

@@ -12,16 +12,14 @@ var async = require('async');
 usb.on('open', function () {
 	console.log('xbee udah on');
 	prompt();
-
-  	usb.on('data', function(data) {
-    		//process.exit();
-		console.log('data received: ' + data);
-  	});
-
-  	//usb.write("HELLO I AM OPEN\n", function(err, results) {
-    	//	console.log('err ' + err);
-    	//	console.log('results ' + results);
-  	//});
+  usb.on('data', function(data) {
+    //process.exit();
+    console.log('data received: ' + data);
+  });
+  //usb.write("HELLO I AM OPEN\n", function(err, results) {
+  	//	console.log('err ' + err);
+    //	console.log('results ' + results);
+  //});
 	//prompts.question("Apa perintah anda?", function (a) {
 	//
 	//	if (a=='0') {
@@ -30,13 +28,7 @@ usb.on('open', function () {
 	//		usb.write(a);
 	//	}
 	//});
-
 });
-
-//usb.on('data', function(data) {
-//	process.exit();
-//console.log('data response received: ' + data);
-//    });
 
 var reading, loop=true;
 var prompt = function () {
@@ -62,7 +54,4 @@ var prompt = function () {
 	function (err, results) {
 		prompt();
 	});
-
 }
-
-//console.log("test 1");

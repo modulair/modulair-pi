@@ -39,6 +39,11 @@ socket.on('home' + home_id, function(data){
 });
 
 var toggleState = 'a';
+var lamp = [];
+lamp[0] = ['a','b'].reverse()
+lamp[1] = ['c','d'].reverse()
+lamp[2] = ['e','f'].reverse()
+lamp[3] = ['g','h'].reverse()
 
 socket.on('client', function (data) {
 	console.log(data);
@@ -51,7 +56,12 @@ socket.on('client', function (data) {
     } else {
       toggleState='b';
     }
-  } else {
+  } else if (data.title=='toggle') {
+	usb.write(lamp[data.state-1][0]);
+	lamp[data.state-1].reverse();
+}
+
+else {
     console.log('other');
   }
 });

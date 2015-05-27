@@ -7,7 +7,7 @@ var system_id = process.argv[4] || '550c1489992a101b35f42a80';
 
 var subsystems = {};
 
-var moment = require('moment');
+// var moment = require('moment');
 // var sport = "/dev/ttyUSB0";
 // var serialport = require('serialport');
 // var rl = require("readline");
@@ -53,32 +53,20 @@ lamp[3] = ['g','h'].reverse()
 
 socket.on('client', function (data) {
 	console.log(data);
-  if (data.title=='changeState') {
-    //console.log('asdf');
-    usb.write(toggleState);
-	console.log(toggleState);
-    if (toggleState=='b') {
-      toggleState='a';
-    } else {
-      toggleState='b';
-    }
-  } else if (data.title=='toggle') {
-	usb.write(lamp[data.state-1][0]);
-	lamp[data.state-1].reverse();
-}
-
-else {
-    console.log('other');
-  // console.log(data);
-  // console.log(moment(Date(data.timestamp)).format());
-  if (data=='toggle') {
-    // usb.write(toggleState);
-    // if (toggleState=='a') {
-    //   toggleState='b';
-    // } else {
-    //   toggleState='a';
-    // }
-  } else {
-    // console.log('other');
-  }
+	if (data.title=='changeState') {
+		//console.log('asdf');
+		usb.write(toggleState);
+		console.log(toggleState);
+		if (toggleState=='b') {
+			toggleState='a';
+		} else {
+			toggleState='b';
+		}
+	} else if (data.title=='toggle') {
+		usb.write(lamp[data.state-1][0]);
+		lamp[data.state-1].reverse();
+	} else {
+    		console.log('other');
+	}
+  
 });

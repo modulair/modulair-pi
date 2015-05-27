@@ -69,8 +69,6 @@ socket.on('client', function (data) {
 
 else {
     console.log('other');
-=======
-
   // console.log(data);
   // console.log(moment(Date(data.timestamp)).format());
   if (data=='toggle') {

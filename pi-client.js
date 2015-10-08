@@ -6,13 +6,13 @@ var home_id = process.argv[3] || 'default';
 var system_id = process.argv[4] || '550c1489992a101b35f42a80';
 var subsystems = [];
 //usb
-//var sport = "/dev/ttyUSB0";
-//var serialport = require('serialport');
+var sport = "/dev/ttyUSB0";
+var serialport = require('serialport');
 var rl = require("readline");
 var prompts = rl.createInterface(process.stdin, process.stdout);
-//var usb = new serialport.SerialPort(sport, {
-//    baudrate: 9600,
-//});
+var usb = new serialport.SerialPort(sport, {
+    baudrate: 9600,
+});
 //async
 var async = require('async');
 
@@ -50,7 +50,7 @@ socket.on('client', function (data) {
 		}
 	} else if (data.title=='toggle') {
       if (data.state<5) {
-//  		  usb.write(lamp[data.state-1][0]);
+  		  usb.write(lamp[data.state-1][0]);
         lamp[data.state-1].reverse();
       } else {
         usb.write(control[data.state-5]);

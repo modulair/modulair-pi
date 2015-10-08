@@ -1,4 +1,4 @@
-var socket = require('socket.io-client')('http://localhost:3211');
+var socket = require('socket.io-client')('http://104.236.39.45:3211');
 var home_id = process.argv[2] || 'default';
 
 socket.on('connect', function(){

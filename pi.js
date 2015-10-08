@@ -1,3 +1,4 @@
+// #comment4commit
 var sport = "/dev/ttyUSB0";
 var serialport = require('serialport');
 var rl = require("readline");
